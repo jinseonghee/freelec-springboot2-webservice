@@ -16,9 +16,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-//테스트를 진행할 때 JUnit에 내장된 실행자 외에 다른 실행자를 실행시킴. 여기선 SpringRunner라는 스프링 실행자를 사용.(스프링 부트 테스트와 JUnit 사이의 연결자 역할)
+//테스트를 진행할 때 JUnit에 내장된 실행자 외에 다른 실행자를 실행시킴. 여기선 SpringRunner 라는 스프링 실행자를 사용.(스프링 부트 테스트와 JUnit 사이의 연결자 역할)
 @WebMvcTest(controllers = HelloController.class) //여러 스프링 어노테이션 중, web(spring MVC)에 집중할 수 있는 어노테이션
-//@Controller, @ControllerAdvice 등 사용 가능(@Service, @component, @Repository등은 사용 불가)
+//@Controller, @ControllerAdvice 등 사용 가능(@Service, @component, @Repository 등 은 사용 불가)
 public class HelloControllerTest {
 
     @Autowired //스프링이 관리하는 bean을 주입받음
@@ -29,7 +29,7 @@ public class HelloControllerTest {
         String hello = "hello";
 
         mvc.perform(get("/hello")) //MockMvc를 통해 /hello 주소로 HTTP GET 요청.
-                .andExpect(status().isOk()) //mvc.perform결과를 검증. HTTP Header의 Status를 검증.(200, 404, 500 error 검증)
+                .andExpect(status().isOk()) //mvc.perform 결과를 검증. HTTP Header의 Status를 검증.(200, 404, 500 error 검증)
                 .andExpect(content().string(hello)); //응답 본문의 내용을 검증.
     }
 
