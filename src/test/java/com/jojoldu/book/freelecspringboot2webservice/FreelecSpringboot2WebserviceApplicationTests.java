@@ -9,5 +9,4 @@ class FreelecSpringboot2WebserviceApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
