@@ -1,7 +1,10 @@
 package com.jojoldu.book.freelecspringboot2webservice.web;
 
 import com.jojoldu.book.freelecspringboot2webservice.domain.posts.Posts;
+import lombok.Data;
+import lombok.Getter;
 
+@Getter
 public class PostsResponseDto {
 
     private Long id;
