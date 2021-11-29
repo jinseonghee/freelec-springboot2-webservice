@@ -4,12 +4,15 @@ import com.jojoldu.book.freelecspringboot2webservice.domain.posts.Posts;
 import com.jojoldu.book.freelecspringboot2webservice.domain.posts.PostsRepository;
 import com.jojoldu.book.freelecspringboot2webservice.web.PostsResponseDto;
 import com.jojoldu.book.freelecspringboot2webservice.web.PostsUpdateRequestDto;
+import com.jojoldu.book.freelecspringboot2webservice.web.dto.PostsListResponseDto;
 import com.jojoldu.book.freelecspringboot2webservice.web.dto.PostsSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor // final이 선언된 모든 필드를 인자값으로 하는 생성자를 롬복이 대신 생성
 @Service
@@ -39,5 +42,12 @@ public class PostsService {
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
 
         return new PostsResponseDto(entity);
+    }
+
+    @Transactional
+    public List<PostsListResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
     }
 }
