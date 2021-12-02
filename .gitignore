@@ -35,6 +35,7 @@ out/
 *.iml
 *.ipr
 *.iws
+application-oauth.properties
 
 # Eclipse
 .settings/
