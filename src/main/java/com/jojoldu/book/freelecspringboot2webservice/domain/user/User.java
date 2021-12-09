@@ -1,6 +1,7 @@
 package com.jojoldu.book.freelecspringboot2webservice.domain.user;
 
 import com.jojoldu.book.freelecspringboot2webservice.domain.BaseTimeEntity;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -29,6 +30,7 @@ public class User extends BaseTimeEntity {
     @Column(nullable = false)
     private Role role;
 
+    @Builder
     public User(String name, String email, String picture, Role role) {
         this.name = name;
         this.email = email;
