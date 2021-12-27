@@ -36,7 +36,7 @@ out/
 *.ipr
 *.iws
 application-oauth.properties
-appplication-google.properties
+application-google.properties
 
 # Eclipse
 .settings/
